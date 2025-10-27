@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+.satisfy {
+  font-family: 'Satisfy', satisfy;
+}
+
+.cursive {
+  font-family: 'Great Vibes', cursive;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  
+}

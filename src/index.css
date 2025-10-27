@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+/* The animated gradient overlay */
+.animated-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(147, 51, 234, 0.5), rgba(59, 130, 246, 0.5), rgba(236, 72, 153, 0.5));
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+/* Ensures your content sits above the animation */
+.animated-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* The keyframe animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+.animated-bg {
+  background: linear-gradient(120deg, #7e22ce, #2563eb, #9333ea, #3b82f6);
+  background-size: 100% 100%;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.horizontal {
+  display: flex;
+  background-color: rgb(195, 239, 240);
+  height: 100vh;
+  width: max-content; /* important: container width = sum of sections */
+}
+
+.horizontal .content {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.bubbles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* clicks pass through */
+  overflow: hidden;
+  z-index: 0; /* behind content */
+}
+
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation-name: rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-80vh) scale(1.2);
+    opacity: 1;
+  }
+}
