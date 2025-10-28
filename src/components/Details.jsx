@@ -27,6 +27,7 @@ function Details() {
         end: () => "+=" + container.offsetWidth,
       },
     });
+
     sections.forEach((section) => {
       gsap.fromTo(
         section,
@@ -39,7 +40,7 @@ function Details() {
           duration: 1.2,
           scrollTrigger: {
             trigger: section,
-            containerAnimation: ScrollTrigger.getById(container), // sync with horizontal scroll
+            containerAnimation: ScrollTrigger.getById(container),
             start: "left center",
             end: "right center",
             toggleActions: "play none none reverse",
@@ -55,14 +56,14 @@ function Details() {
       text: "Simplify billing with Finexa. Create, manage, and track invoices seamlessly for efficient and organized financial transactions.",
       color: "bg-gradient-to-br from-[#b1a6ff] to-[#c8c9ff]",
       img: Iics,
-      buttontext:"visit site",
+      buttontext: "visit site",
     },
     {
       title: "Creative Design",
       text: "Beautiful UI mockups and prototypes made easy with intuitive design tools that accelerate creativity.",
       color: "bg-gradient-to-br from-[#d6b2ff] to-[#b9baff]",
       img: Figma,
-      buttontext:"visit site",
+      buttontext: "visit site",
     },
     {
       title: "Travel Planner",
@@ -70,21 +71,21 @@ function Details() {
       color: "bg-gradient-to-br from-[#e3daff] to-[#c9e0ff]",
       textColor: "text-black",
       img: Travels,
-      buttontext:"visit site",
+      buttontext: "visit site",
     },
     {
       title: "Entertainment Hub",
       text: "A sleek, responsive interface to enjoy seamless gaming and fun with friends anywhere.",
       color: "bg-gradient-to-br from-[#bdb2ff] to-[#a6bfff]",
       img: Tik,
-      buttontext:"visit site",
+      buttontext: "visit site",
     },
     {
       title: "Data Visualization",
       text: "Transform complex datasets into actionable insights through clear, elegant visual analytics.",
       color: "bg-gradient-to-br from-[#cbb2ff] to-[#9ecaff]",
       img: Exaloop,
-      buttontext:"visit site",
+      buttontext: "visit site",
     },
   ];
 
@@ -111,31 +112,33 @@ function Details() {
       </div>
 
       {/* Heading */}
-      <div className="sticky top-0 left-0 z-20 px-20 pt-10 pb-10">
-        <h1 className="text-7xl font-semiabold leading-tight tracking-tight text-[#201f1e] font-[dancingscript]">
+      <div className="sticky top-0 left-0 z-20 px-6 sm:px-12 md:px-20 pt-10 pb-10 text-center md:text-left">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-semibold leading-tight tracking-tight text-[#201f1e] font-[DancingScript]">
           Show Case
         </h1>
       </div>
 
       {/* Horizontal Scroll Section */}
-      <div className="projects flex px-5 mt-30 gap-8 pb-15 overflow-x-visible relative z-10">
+      <div className="projects flex px-5 mt-20 sm:mt-40 gap-10 pb-10 overflow-x-visible relative z-10">
         {cards.map((card, i) => (
           <div
             key={i}
-            className="card-section min-w-[55vw] h-[80vh] flex items-center justify-center"
+            className="card-section min-w-[200vw] sm:min-w-[55vw] md:min-w-[32vw] h-auto md:h-[55vh] flex items-center justify-center"
           >
             <div
               className={`card ${card.color} ${
                 card.textColor || "text-white"
-              } rounded-[40px] p-10 shadow-2xl flex flex-col md:flex-row items-center justify-center md:justify-between w-full md:w-[50vw] h-auto md:h-[60vh] transition-transform duration-500`}
+              } rounded-[25px] sm:rounded-[30px] mt-10 p-6 sm:p-8 md:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between w-[90vh] h-auto md:h-[45vh] transition-transform duration-500`}
             >
               {/* Left: Text */}
-              <div className="w-full md:w-1/2 pr-0 md:pr-8 mb-6 md:mb-0 text-center md:text-left">
-                <h2 className="text-2xl md:text-4xl font-bold mb-4">{card.title}</h2>
-                <p className="text-base md:text-lg opacity-80 leading-relaxed font-[dancingscript]">
+              <div className="w-full md:w-1/2 mb-6 md:mb-0 text-center md:text-left px-2 sm:px-4">
+                <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-3">
+                  {card.title}
+                </h2>
+                <p className="text-sm sm:text-base md:text-lg opacity-90 leading-relaxed font-[Poppins]">
                   {card.text}
                 </p>
-                <button className="text-lg md:text-2xl font-bold mt-6 md:mt-20 border-2 border-dashed bg-black p-2 md:px-6 md:py-2 text-white rounded-[40px] hover:bg-white hover:text-black transition-colors duration-300">
+                <button className="text-sm sm:text-lg md:text-xl font-bold mt-6 md:mt-10 border-2 border-dashed bg-black px-5 py-2 sm:px-6 sm:py-3 text-white rounded-[25px] hover:bg-white hover:text-black transition-colors duration-300">
                   {card.buttontext}
                 </button>
               </div>
@@ -145,7 +148,7 @@ function Details() {
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="rounded-2xl w-[250px] md:w-[350px] h-[200px] md:h-[300px] object-cover shadow-xl"
+                  className="rounded-2xl w-[150px] sm:w-[220px] md:w-[240px] h-[110px] sm:h-[180px] md:h-[200px] object-cover shadow-xl"
                 />
               </div>
             </div>

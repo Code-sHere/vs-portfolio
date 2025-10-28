@@ -2,24 +2,38 @@ import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-
-gsap.registerPlugin(ScrollTrigger);
-
 export function Cursor() {
   const cursor = useRef();
 
   useGSAP(() => {
+    // Cursor movement
     const move = (e) => {
       gsap.to(cursor.current, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.5,
+        duration: 0.25,
         ease: "power2.out",
       });
     };
 
     document.addEventListener("mousemove", move);
-    return () => document.removeEventListener("mousemove", move);
+
+    // GSAP timeline for continuous color changes
+    const colors = ["#47ececff", "#25e81bff", "#0d0c0dff", "#fafafcff", "#3efbf1ff"];
+    const tl = gsap.timeline({ repeat: -1, yoyo: true, defaults: { duration: 2 } });
+
+    colors.forEach((color) => {
+      tl.to(cursor.current, {
+        backgroundColor: color,
+        scale: gsap.utils.random(0.9, 1.3),
+        ease: "power1.inOut",
+      });
+    });
+
+    return () => {
+      document.removeEventListener("mousemove", move);
+      tl.kill();
+    };
   }, []);
 
   return (
@@ -29,17 +43,19 @@ export function Cursor() {
         position: "fixed",
         top: 0,
         left: 0,
-        width: "13px",
-        height: "13px",
+        width: "14px",
+        height: "14px",
         borderRadius: "50%",
-        backgroundColor: "deeppink",
+        backgroundColor: "#afacacff",
         pointerEvents: "none",
         transform: "translate(-50%, -50%)",
         zIndex: 9999,
+        mixBlendMode: "difference", // looks cool on bright/dark sections
       }}
     ></div>
   );
 }
+
 
 export function Hero() {
   const textRef = useRef(null);

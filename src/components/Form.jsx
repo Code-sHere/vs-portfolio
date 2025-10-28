@@ -15,12 +15,12 @@ function Form() {
       gsap.from(section, {
         opacity: 0,
         y: 50,
-        duration: 0.8,
+        duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 80%",
-          end: "bottom 60%",
+          start: "top 70%",
+          end: "bottom 70%",
           toggleActions: "play none none reverse",
         },
       });

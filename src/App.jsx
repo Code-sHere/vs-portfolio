@@ -6,6 +6,7 @@ import Detail from './components/Details'
 import Fom from './components/Form'
 import Foot from './components/Footer'
 import bgImage from './assets/annie-spratt-0ZPSX_mQ3xI-unsplash.jpg'
+import About from './components/About'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Hero />
         <Cursor />
         <Detail />
+        <About />
         <Fom />
         <Foot />
       </div>
