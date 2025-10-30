@@ -57,6 +57,7 @@ function Details() {
       color: "bg-gradient-to-br from-[#b1a6ff] to-[#c8c9ff]",
       img: Iics,
       buttontext: "visit site",
+      link:"https://Code-sHere.github.io/IICS-clone/"
     },
     {
       title: "Creative Design",
@@ -64,6 +65,7 @@ function Details() {
       color: "bg-gradient-to-br from-[#d6b2ff] to-[#b9baff]",
       img: Figma,
       buttontext: "visit site",
+      link:"https://Code-sHere.github.io/Figma-Clone"
     },
     {
       title: "Travel Planner",
@@ -72,6 +74,7 @@ function Details() {
       textColor: "text-black",
       img: Travels,
       buttontext: "visit site",
+      link:"https://Code-sHere.github.io/Travels/"
     },
     {
       title: "Entertainment Hub",
@@ -79,6 +82,7 @@ function Details() {
       color: "bg-gradient-to-br from-[#bdb2ff] to-[#a6bfff]",
       img: Tik,
       buttontext: "visit site",
+      link:"https://Code-sHere.github.io/Tic-Tak-Toe/"
     },
     {
       title: "Data Visualization",
@@ -86,6 +90,7 @@ function Details() {
       color: "bg-gradient-to-br from-[#cbb2ff] to-[#9ecaff]",
       img: Exaloop,
       buttontext: "visit site",
+      link:"https://Code-sHere.github.io/Exaloop-clone/"
     },
   ];
 
@@ -135,12 +140,17 @@ function Details() {
                 <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-3">
                   {card.title}
                 </h2>
-                <p className="text-sm sm:text-base md:text-lg opacity-90 leading-relaxed font-[Poppins]">
+                <p className="text-sm mb-5 sm:text-base md:text-lg opacity-90 leading-relaxed font-[Poppins]">
                   {card.text}
                 </p>
-                <button className="text-sm sm:text-lg md:text-xl font-bold mt-6 md:mt-10 border-2 border-dashed bg-black px-5 py-2 sm:px-6 sm:py-3 text-white rounded-[25px] hover:bg-white hover:text-black transition-colors duration-300">
+                <a
+                  href={card.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm sm:text-lg md:text-xl font-bold mt-10 md:mt-15 border-2 border-dashed bg-black px-5 py-2 sm:px-8 sm:py-3 text-white rounded-[25px] hover:bg-white hover:text-black transition-colors duration-300 translate-y-[10px]">
                   {card.buttontext}
-                </button>
+                </a>
+
               </div>
 
               {/* Right: Image */}
